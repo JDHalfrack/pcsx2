@@ -51,10 +51,10 @@ namespace HostMemoryMap
 	static const u32 EEmemOffset   = 0x00000000;
 
 	// IOP main memory and ROMs
-	static const u32 IOPmemOffset  = 0x04000000;
+	static const u32 IOPmemOffset  = 0x09000000;
 
 	// VU0 and VU1 memory.
-	static const u32 VUmemOffset   = 0x08000000;
+	static const u32 VUmemOffset   = 0x0A000000;
 
 	// Bump allocator for any other small allocations
 	// size: Difference between it and HostMemoryMap::Size, so nothing should allocate higher than it!

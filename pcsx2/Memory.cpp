@@ -145,10 +145,12 @@ void memMapVUmicro()
 
 void memMapPhy()
 {
-	// Main memory
-	vtlb_MapBlock(eeMem->Main,	0x00000000,Ps2MemSize::MainRam);//mirrored on first 256 mb ?
+	// Main memory + extended memory
+	// THIS WAS THE ORIGINAL --> vtlb_MapBlock(eeMem->Main,	0x00000000,Ps2MemSize::MainRam);//mirrored on first 256 mb ?
+	vtlb_MapBlock(eeMem->Main, 0x00000000, Ps2MemSize::TotalRam);
 	// High memory, uninstalled on the configuration we emulate
-	vtlb_MapHandler(null_handler, Ps2MemSize::MainRam, 0x10000000 - Ps2MemSize::MainRam);
+	// THIS WAS THE ORIGINAL --> vtlb_MapHandler(null_handler, Ps2MemSize::MainRam, 0x10000000 - Ps2MemSize::MainRam);
+	vtlb_MapHandler(null_handler, Ps2MemSize::TotalRam, 0x10000000 - Ps2MemSize::TotalRam);
 
 	// Various ROMs (all read-only)
 	vtlb_MapBlock(eeMem->ROM,	0x1fc00000, Ps2MemSize::Rom);

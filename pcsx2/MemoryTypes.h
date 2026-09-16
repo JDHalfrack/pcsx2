@@ -19,6 +19,8 @@
 namespace Ps2MemSize
 {
 	static const uint MainRam	= _32mb;			// 32 MB main memory!
+	static const uint ExtraRam 	= _1mb * 96;
+	static const uint TotalRam 	= _1mb * 128;
 	static const uint Rom		= _1mb * 4;			// 4 MB main rom
 	static const uint Rom1		= _1mb * 4;			// DVD player
 	static const uint Rom2		= 0x00080000;		// Chinese rom extension
@@ -39,7 +41,7 @@ typedef u128 mem128_t;
 
 struct EEVM_MemoryAllocMess
 {
-	u8 Main[Ps2MemSize::MainRam];			// Main memory (hard-wired to 32MB)
+	u8 Main[Ps2MemSize::TotalRam];			// Main memory (128MB with extended RAM)
 	u8 Scratch[Ps2MemSize::Scratch];		// Scratchpad!
 	u8 ROM[Ps2MemSize::Rom];				// Boot rom (4MB)
 	u8 ROM1[Ps2MemSize::Rom1];				// DVD player (4MB)

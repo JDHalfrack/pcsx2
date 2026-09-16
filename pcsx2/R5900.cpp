@@ -631,6 +631,26 @@ int ParseArgumentString(u32 arg_block)
 	return argc;
 }
 
+
+static void MapNCAANextExtendedRAM()
+{
+	vtlb_VMap(
+		Ps2MemSize::MainRam,
+		Ps2MemSize::MainRam,
+		Ps2MemSize::ExtraRam);
+
+	vtlb_VMap(
+		0x20000000 | Ps2MemSize::MainRam,
+		Ps2MemSize::MainRam,
+		Ps2MemSize::ExtraRam);
+
+	vtlb_VMap(
+		0x30000000 | Ps2MemSize::MainRam,
+		Ps2MemSize::MainRam,
+		Ps2MemSize::ExtraRam);
+}
+
+
 // Called from recompilers; define is mandatory.
 void eeloadHook()
 {
@@ -736,6 +756,7 @@ void eeloadHook()
 				{
 					// Overwrite OSDSYS with game's ELF name
 					strcpy((char*)PSM(g_osdsys_str), elftoload.c_str());
+					MapNCAANextExtendedRAM();
 					g_GameLoading = true;
 					return;
 				}
@@ -744,7 +765,10 @@ void eeloadHook()
 	}
 
 	if (!g_GameStarted && ((disctype == 2 && elfname == discelf) || disctype == 1))
+	{
+		MapNCAANextExtendedRAM();
 		g_GameLoading = true;
+	}
 }
 
 // Called from recompilers; define is mandatory.

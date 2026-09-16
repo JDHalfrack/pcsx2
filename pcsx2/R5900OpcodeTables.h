@@ -18,18 +18,20 @@
 
 enum Syscall : u8
 {
-	SetGsCrt = 2,
-	ExecPS2 = 7,
-	SetVTLBRefillHandler = 13,
-	StartThread = 34,
-	ChangeThreadPriority = 41,
-	SetOsdConfigParam = 74,
-	GetOsdConfigParam = 75,
-	SetOsdConfigParam2 = 110,
-	GetOsdConfigParam2 = 111,
-	sysPrintOut = 117,
-	sceSifSetDma = 119,
-	Deci2Call = 124
+    SetGsCrt = 2,
+    ExecPS2 = 7,
+    SetVTLBRefillHandler = 13,
+    StartThread = 34,
+    ChangeThreadPriority = 41,
+    RFU060 = 60,
+    SetOsdConfigParam = 74,
+    GetOsdConfigParam = 75,
+    SetOsdConfigParam2 = 110,
+    GetOsdConfigParam2 = 111,
+    sysPrintOut = 117,
+    sceSifSetDma = 119,
+    Deci2Call = 124,
+    GetMemorySize = 127
 };
 
 // TODO : Move these into the OpcodeTables namespace

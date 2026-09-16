@@ -965,6 +965,12 @@ void SYSCALL()
 			}
 		}
 		break;
+		case Syscall::RFU060:
+		    if (cpuRegs.GPR.n.a1.UL[0] == 0xFFFFFFFF)
+		    {
+		        cpuRegs.GPR.n.a1.UL[0] = Ps2MemSize::TotalRam - cpuRegs.GPR.n.a2.SL[0];
+		    }
+		    break;
 		case Syscall::SetOsdConfigParam:
 			AllowParams1 = true;
 			break;
@@ -1135,6 +1141,9 @@ void SYSCALL()
 			break;
 		}
 
+		case Syscall::GetMemorySize:
+		    cpuRegs.GPR.n.v0.UL[0] = Ps2MemSize::TotalRam;
+		    return;
 
 		default:
 			break;
