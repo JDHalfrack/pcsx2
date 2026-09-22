@@ -94,6 +94,7 @@ jobs:
         run: .github/workflows/scripts/linux/build-dependencies-qt.sh
 
       - name: Download cheats
+	continue-on-error: true
         run: |
           cd bin/resources
           aria2c -Z "${{ inputs.cheats_url }}/cheats_ni.zip" "${{ inputs.cheats_url }}/cheats_ws.zip"
