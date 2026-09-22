@@ -70,7 +70,7 @@ cd ..
 echo "Installing soundtouch..."
 tar xf "$SOUNDTOUCH.tar.gz"
 cd "$SOUNDTOUCH"
-cmake -B build -DCMAKE_INSTALL_PREFIX="$INSTALLDIR" -DCMAKE_BUILD_TYPE=MinSizeRel
+cmake -B build -DCMAKE_INSTALL_PREFIX="$INSTALLDIR" -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 make -C build "-j$NPROCS"
 make -C build install
 cd ..
