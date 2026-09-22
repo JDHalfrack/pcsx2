@@ -16,6 +16,7 @@ declare -a BUILD_PACKAGES=(
 	"libclang-11-dev"
 	"libclang-12-dev"
 	"patchelf"
+        "libfuse2"
 	"libglib2.0-dev"
 	"libfontconfig1-dev"
 	"libharfbuzz-dev"
