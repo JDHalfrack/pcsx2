@@ -7,7 +7,7 @@ export MACOSX_DEPLOYMENT_TARGET=10.14
 INSTALLDIR="$HOME/deps"
 NPROCS="$(getconf _NPROCESSORS_ONLN)"
 SDL=SDL2-2.26.0
-PNG=1.6.37
+PNG=1.6.43
 JPG=9e
 SOUNDTOUCH=soundtouch-2.3.1
 QT=6.3.1
@@ -22,7 +22,7 @@ export CXXFLAGS="-I$INSTALLDIR/include -Os $CXXFLAGS"
 
 cat > SHASUMS <<EOF
 8000d7169febce93c84b6bdf376631f8179132fd69f7015d4dadb8b9c2bdb295  $SDL.tar.gz
-505e70834d35383537b6491e7ae8641f1a4bed1876dbfe361201fc80868d88ca  libpng-$PNG.tar.xz
+6a5ca0652392a2d7c9db2ae5b40210843c0bbc081cbd410825ab00cc59f14a6c  libpng-$PNG.tar.xz
 4077d6a6a75aeb01884f708919d25934c93305e49f7e3f36db9129320e6f4f3d  jpegsrc.v$JPG.tar.gz
 6900996607258496ce126924a19fe9d598af9d892cf3f33d1e4daaa9b42ae0b1  $SOUNDTOUCH.tar.gz
 0a64421d9c2469c2c48490a032ab91d547017c9cc171f3f8070bc31888f24e03  qtbase-everywhere-src-$QT.tar.xz
@@ -33,7 +33,7 @@ EOF
 
 curl -L \
 	-O "https://libsdl.org/release/$SDL.tar.gz" \
-	-O "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/$PNG/libpng-$PNG.tar.xz" \
+	-O "https://downloads.sourceforge.net/project/libpng/libpng16/$PNG/libpng-$PNG.tar.xz" \
 	-O "https://www.ijg.org/files/jpegsrc.v$JPG.tar.gz" \
 	-O "https://www.surina.net/soundtouch/$SOUNDTOUCH.tar.gz" \
 	-O "https://download.qt.io/archive/qt/${QT%.*}/$QT/submodules/qtbase-everywhere-src-$QT.tar.xz" \
