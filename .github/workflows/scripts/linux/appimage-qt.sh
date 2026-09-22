@@ -125,7 +125,6 @@ done
 # Fix up translations.
 rm -fr "$OUTDIR/usr/bin/translations"
 mv "$OUTDIR/usr/translations" "$OUTDIR/usr/bin"
-cp -a "$BUILDDIR/bin/translations" "$OUTDIR/usr/bin"
 
 echo "Generating AppImage..."
 rm -f "$NAME.AppImage"
