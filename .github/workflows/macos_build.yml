@@ -9,7 +9,7 @@ on:
       os:
         required: false
         type: string
-        default: macos-11.0
+        default: macos-15-intel
       platform:
         required: false
         type: string
@@ -83,6 +83,7 @@ jobs:
         run: .github/workflows/scripts/macos/build-dependencies.sh
 
       - name: Download cheats
+        continue-on-error: true
         run: |
           cd bin/resources
           aria2c -Z "${{ inputs.cheats_url }}/cheats_ni.zip" "${{ inputs.cheats_url }}/cheats_ws.zip"
