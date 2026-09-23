@@ -126,6 +126,11 @@ done
 rm -fr "$OUTDIR/usr/bin/translations"
 mv "$OUTDIR/usr/translations" "$OUTDIR/usr/bin"
 
+echo "Installing custom AppRun..."
+rm -f "$OUTDIR/AppRun"
+cp "$PCSX2DIR/.github/workflows/scripts/linux/AppRun-qt" "$OUTDIR/AppRun"
+chmod +x "$OUTDIR/AppRun"
+
 echo "Generating AppImage..."
 rm -f "$NAME.AppImage"
 $APPIMAGETOOL -v "$OUTDIR" "$NAME.AppImage"
