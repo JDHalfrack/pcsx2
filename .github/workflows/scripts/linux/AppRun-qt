@@ -1,4 +1,9 @@
 #!/bin/sh
 
 APPDIR=$(dirname "$0")
+
+if [ -z "$QT_QPA_PLATFORM" ]; then
+    export QT_QPA_PLATFORM="wayland;xcb"
+fi
+
 exec "$APPDIR/usr/bin/pcsx2-qt" "$@"
